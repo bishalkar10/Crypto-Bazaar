@@ -1,50 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+// taking the 'setSearchWord' as an argument we wil use this to filter the array.
+export default function Navbar({ setSearchWord }) {
+  // create a state to store the menu and close icon visibility.
   const [iconVisibility, SetIconVisibility] = useState({
     menuIcon: true,
-    closeIcon: false,
   });
 
-  //
-  const [searchWord, setSearchWord] = useState("");
-  const [arrowIcon, setArrowIcon] = useState(false);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  const handleScroll = () => {
-    if (window.pageYOffset > 300) {
-      setArrowIcon(true);
-    } else {
-      setArrowIcon(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+  // function to change the icon visibility. if menu icon is true then change it to close icon and vice versa.
   function changeIcon() {
     SetIconVisibility((prevState) => ({
       menuIcon: !prevState.menuIcon,
-      closeIcon: !prevState.closeIcon,
     }));
   }
+  // with each keystroke we will update the searchWord state.
   function handleChange(event) {
     setSearchWord(event.target.value);
   }
   return (
     <header className="sticky top-0 left-0 right-0 z-10">
-      <nav className=" h-16 w-full bg-blue-400 rounded-b-lg flex justify-around items-center">
+      <nav className=" h-16 w-full bg-blue-400 rounded-b-lg flex justify-between items-center px-5">
         <h1>
           CRYPTO <br />
           BAZAAR
@@ -54,17 +30,41 @@ export default function Navbar() {
           type="text"
           placeholder="Bitcoin"
           onChange={handleChange}
-          className="outline-none indent-4 rounded-2xl h-8 w-40"
+          className="outline-none indent-4 rounded-2xl h-8 min-w-40 w-1/2 max-w-md"
         />
+        {/* top nav bar ------------------ */}
+        <ul className="hidden sm:flex sm:gap-10 ">
+          <li>
+            <Link
+              className="inline-block w-20 text-center rounded-lg bg-white"
+              to="/"
+            >
+              Market
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-block w-20 text-center rounded-lg bg-white"
+              to="/news"
+            >
+              News
+            </Link>
+          </li>
+        </ul>
 
-        <a className="h-8 w-8 grid place-content-center" onClick={changeIcon}>
+        {/* Menu icon and close icon------------- */}
+        <a
+          className="h-8 w-8 grid place-content-center sm:hidden"
+          onClick={changeIcon}
+        >
           {iconVisibility.menuIcon ? (
-            <i className="fa fa-bars text-xl"></i>
+            <i className="fa fa-bars text-xl text-white"></i>
           ) : (
-            <i className="fa fa-close text-2xl"></i>
+            <i className="fa fa-close text-2xl text-white font-extralight"></i>
           )}
         </a>
 
+        {/* side nav bar --------------------*/}
         <ul
           className={`fixed top-16 right-0 w-44 h-screen bg-slate-700 text-white flex flex-col transition-transform duration-300 ${
             iconVisibility.menuIcon ? "translate-x-full" : "translate-x-0"
@@ -87,14 +87,6 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <div
-          className={`${
-            arrowIcon ? "grid" : "hidden"
-          } fixed place-content-center bottom-4 right-4 bg-gray-500 text-white p-2 h-10 w-10 rounded-full cursor-pointer transition-opacity duration-300 animate-bounce`}
-          onClick={scrollToTop}
-        >
-          <i className="fa fa-arrow-up"></i>
-        </div>
       </nav>
     </header>
   );
