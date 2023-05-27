@@ -37,7 +37,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className="inline-block w-20 text-center rounded-lg bg-white"
-              to="/Crypto-Bazaar/"
+              to="/"
             >
               Market
             </Link>
@@ -45,7 +45,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className="inline-block w-20 text-center rounded-lg bg-white"
-              to="/Crypto-Bazaar/news"
+              to="/news"
             >
               News
             </Link>
@@ -73,7 +73,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className=" pl-6 py-6 w-full block hover:text-black hover:bg-slate-50 text-white text-xl"
-              to="/Crypto-Bazaar/"
+              to="/"
             >
               Market
             </Link>
@@ -81,7 +81,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className=" pl-6 py-6 w-full block  hover:text-black hover:bg-slate-50 text-white text-xl"
-              to="/Crypto-Bazaar/news"
+              to="/news"
             >
               News
             </Link>
