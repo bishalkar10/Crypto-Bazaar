@@ -20,8 +20,8 @@ export default function Navbar({ setSearchWord }) {
   }
   return (
     <header className="sticky top-0 left-0 right-0 z-10">
-      <nav className=" h-16 w-full bg-blue-400 rounded-b-lg flex justify-between items-center px-5">
-        <h1>
+      <nav className=" h-16 w-full bg-blue-400 rounded-b-lg flex justify-between items-center px-5 md:px-10">
+        <h1 className="font-BrunoAceSC sm:text-xl">
           CRYPTO <br />
           BAZAAR
         </h1>
@@ -33,11 +33,11 @@ export default function Navbar({ setSearchWord }) {
           className="outline-none indent-4 rounded-2xl h-8 min-w-40 w-1/2 max-w-md"
         />
         {/* top nav bar ------------------ */}
-        <ul className="hidden sm:flex sm:gap-10 ">
+        <ul className="hidden sm:flex sm:gap-5 font-Roboto ">
           <li>
             <Link
               className="inline-block w-20 text-center rounded-lg bg-white"
-              to="/"
+              to="/Crypto-Bazaar/"
             >
               Market
             </Link>
@@ -45,7 +45,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className="inline-block w-20 text-center rounded-lg bg-white"
-              to="/news"
+              to="/Crypto-Bazaar/news"
             >
               News
             </Link>
@@ -73,7 +73,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className=" pl-6 py-6 w-full block hover:text-black hover:bg-slate-50 text-white text-xl"
-              to="/"
+              to="/Crypto-Bazaar/"
             >
               Market
             </Link>
@@ -81,7 +81,7 @@ export default function Navbar({ setSearchWord }) {
           <li>
             <Link
               className=" pl-6 py-6 w-full block  hover:text-black hover:bg-slate-50 text-white text-xl"
-              to="/news"
+              to="/Crypto-Bazaar/news"
             >
               News
             </Link>
