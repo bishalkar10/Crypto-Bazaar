@@ -6,7 +6,7 @@ export default function Coin({ id, name, icon, rank, price }) {
       <div className="absolute h-8 w-8 rounded-xl grid place-content-center bg-black text-white top-2 left-2 ">
         {rank}
       </div>
-      <Link to={`/coin/${id}`}>
+      <Link to={`/Crypto-Bazaar/coin/${id}`}>
         <img className="h-16 w-auto" src={icon} alt="cryptoCoinLogo" />
       </Link>
       <h2 className="text-xl">{name}</h2>
