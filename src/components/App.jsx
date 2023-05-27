@@ -40,9 +40,12 @@ export default function App() {
       <div>
         <Navbar setSearchWord={setSearchWord} />
         <Routes>
-          <Route path="/" element={<CoinDesk searchWord={searchWord} />} />
-          <Route path="/coin/:id" element={<CoinPageWrapper />} />
-          <Route path="/news" element={<NewsDesk />} />
+          <Route
+            path="/Crypto-Bazaar/"
+            element={<CoinDesk searchWord={searchWord} />}
+          />
+          <Route path="/Crypto-Bazaar/coin/:id" element={<CoinPageWrapper />} />
+          <Route path="/Crypto-Bazaar/news" element={<NewsDesk />} />
         </Routes>
       </div>
       <div
